@@ -1,0 +1,41 @@
+// styling/Activities.scss
+
+@import "variables";
+
+.activities {
+	// display: flex;
+	// justify-content: center;
+	// align-items: center;
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&__grid-item {
+		display: flex;
+		flex-direction: column;
+		background-color: $color-background;
+		background-image: $background-image-square;
+		box-shadow: $box-shadow-square;
+		list-style: none;
+		text-align: center;
+		justify-content: center;
+		width: 7rem;
+		height: 7rem;
+		margin: 1rem;
+		border: solid white 0.1px;
+		border-radius: 0.625rem;
+
+		&:active {
+			border: solid 0.1px $color-green;
+			color: $color-green;
+		}
+
+		&__icon {
+			width: 3.1rem;
+			height: 3.1rem;
+			margin-bottom: 0.5rem;
+		}
+	}
+}

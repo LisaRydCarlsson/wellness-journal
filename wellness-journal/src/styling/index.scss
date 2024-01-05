@@ -1,0 +1,88 @@
+// index.scss
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "app";
+@import "variables";
+
+* {
+	font-family: "Montserrat";
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 0;
+	border: none;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	color: inherit;
+	user-select: none;
+}
+
+main {
+	background-color: $color-background;
+	min-width: 100vw;
+	min-height: 100vh;
+	padding: 3rem 0 5rem 0;
+}
+
+h1,
+h2 {
+	color: $color-purple;
+	font-weight: 600;
+	letter-spacing: 0.0625rem;
+	margin-bottom: 1rem;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 1.6rem;
+}
+
+p {
+	color: $color-coral;
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.05rem;
+}
+
+li {
+	color: #fff;
+	text-align: center;
+	font-family: Montserrat;
+	font-size: 0.7rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.25rem;
+	letter-spacing: 0.0344rem;
+	text-transform: uppercase;
+}
+
+.main-btn {
+	width: 17rem;
+	height: 3.5rem;
+	color: $color-white;
+	background-color: $color-background;
+	background-image: linear-gradient(
+		-180deg,
+		$color-white 0%,
+		$color-background 20%,
+		$color-background 100%
+	);
+	box-shadow: 0 -0.25rem 1rem rgb(0, 0, 0) inset,
+		0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+		0 0.25rem 0.5rem 0 rgb(81, 81, 81) inset;
+	border: solid 1px $color-white;
+	border-radius: 0.6rem;
+	margin-bottom: 2rem;
+	font-size: 1.25rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	cursor: pointer;
+
+	&:active {
+		border: solid 1px $color-green;
+		color: $color-green;
+	}
+}
