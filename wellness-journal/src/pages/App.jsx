@@ -16,27 +16,21 @@ function App() {
 
 	return (
 		<div className="App">
-			<main>
-				<header>
+			<main className="start">
+				<header className="start__header">
 					<h1>
 						WELLNESS <br />
 						JOURNAL
 					</h1>
 				</header>
 				<img
-					className="start-img"
+					className="start__img"
 					src="src/assets/gymnastics_start.png"
 					alt="Gymnast Icon"
 				/>
-				<section className="btn-container">
-					<Link to="/activities">
-						<button className="main-btn">GET STARTED</button>
-					</Link>
-					{/* <button className="main-btn">REGISTER</button> */}
-				</section>
-				{/* <p>
-					<Link to="/activities">skip for now</Link>
-				</p> */}
+				<Link to="/activities">
+					<button className="main-btn">GET STARTED</button>
+				</Link>
 			</main>
 		</div>
 	);

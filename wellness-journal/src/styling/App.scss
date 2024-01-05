@@ -1,6 +1,6 @@
 @import "variables";
 
-main {
+.start {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -10,12 +10,8 @@ main {
 		gap: 1rem;
 	}
 
-	.start-img {
+	&__img {
 		width: 12rem;
-	}
-
-	.btn-container {
-		display: flex;
-		flex-direction: column;
+		padding-bottom: 2rem;
 	}
 }
