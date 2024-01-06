@@ -1,13 +1,13 @@
 // Journal.jsx
 
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 import React from "react";
 
 const Activities = () => {
 	const journal = useSelector((state) => state.myFeatures.journal);
 	return (
-		<div>
+		<main>
 			<h1>MY JOURNAL</h1>
 			{journal.map((activity, index) => (
 				<div key={index}>
@@ -16,7 +16,7 @@ const Activities = () => {
 					<p>{activity.date}</p>
 				</div>
 			))}
-		</div>
+		</main>
 	);
 };
 
