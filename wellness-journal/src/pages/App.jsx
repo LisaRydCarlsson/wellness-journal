@@ -1,16 +1,14 @@
-// App.jsx
+// Home.jsx
 
 import { useState } from "react";
-import "../styling/App.scss";
-import "../styling/index.scss";
+import "../styling/app.scss";
+import "../styling/general.scss";
 import { Link } from "react-router-dom";
 
 function App() {
 	const [count, setCount] = useState(0);
 
-	const handleLinkClick = () => {
-		console.log("Link clicked!");
-	};
+	const handleLinkClick = () => {};
 
 	handleLinkClick();
 

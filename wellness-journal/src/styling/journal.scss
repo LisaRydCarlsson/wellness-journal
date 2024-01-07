@@ -1,0 +1,45 @@
+// styling/journal.scss
+
+@import "variables";
+
+.journal-grid {
+	padding-bottom: 3rem;
+
+	&__item {
+		display: grid;
+		grid-template-columns: 1fr 2fr 1fr;
+		background-color: $color-purple;
+		border: solid $color-white 0.1px;
+		border-radius: 0.6rem;
+		padding: 1rem 0.8rem;
+		margin-bottom: 1rem;
+		gap: 1.75rem;
+
+		&__image-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&__icon {
+				width: 2.3rem;
+			}
+		}
+
+		&__text {
+			h5,
+			p {
+				text-align: left;
+			}
+		}
+
+		&__settings {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&__icon {
+				width: 1.5rem;
+			}
+		}
+	}
+}

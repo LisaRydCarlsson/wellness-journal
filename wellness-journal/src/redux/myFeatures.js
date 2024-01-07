@@ -12,23 +12,33 @@ export const addActivityToJournal = (activity, minutesSpent, date) => ({
 });
 
 // Initial State
+let savedJournal = localStorage.getItem("myJournal");
+if (savedJournal) {
+	savedJournal = JSON.parse(savedJournal);
+} else {
+	savedJournal = [];
+}
 const initialState = {
-	journal: [],
+	journal: savedJournal,
 };
 
 // Reducer
 export const myFeaturesReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_ACTIVITY_TO_JOURNAL:
+			const newJournal = [action.payload, ...state.journal];
+			localStorage.setItem("myJournal", JSON.stringify(newJournal));
 			return {
 				...state,
-				journal: [...state.journal, action.payload],
+				journal: newJournal,
 			};
 		default:
 			return state;
 	}
 };
 
-export const store = configureStore({
+const store = configureStore({
 	reducer: myFeaturesReducer,
 });
+
+export default store;

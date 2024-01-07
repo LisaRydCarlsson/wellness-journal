@@ -9,14 +9,43 @@ import "../styling/activityPopup.scss";
 
 const ActivityPopup = ({ activity, onClose }) => {
 	const dispatch = useDispatch();
-	const [minutesSpent, setMinutesSpent] = useState(0);
+	const [minutesSpent, setMinutesSpent] = useState(5);
+	const weekdays = [
+		"SUNDAY",
+		"MONDAY",
+		"TUESDAY",
+		"WEDNESDAY",
+		"THURSDAY",
+		"FRIDAY",
+		"SATURDAY",
+	];
+	const months = [
+		"JAN",
+		"FEB",
+		"MAR",
+		"APR",
+		"MAY",
+		"JUN",
+		"JUL",
+		"AUG",
+		"SEP",
+		"OCT",
+		"NOV",
+		"DEC",
+	];
+	const today = new Date();
+	let day = today.getDate().toString().padStart(2, "0");
+	let weekday = weekdays[today.getDay()];
+	let month = months[today.getMonth()];
+
+	let dateString = `${weekday} ${day} ${month}`;
 
 	const handleRegisterClick = () => {
-		dispatch(addActivityToJournal(activity, minutesSpent, dateString));
+		if (minutesSpent > 0) {
+			dispatch(addActivityToJournal(activity, minutesSpent, dateString));
+		}
 	};
 
-	const today = new Date();
-	const dateString = today.toISOString().split("T")[0];
 	return (
 		<div className="activity-popup">
 			<main>
@@ -35,19 +64,29 @@ const ActivityPopup = ({ activity, onClose }) => {
 						minutes:
 						<input
 							type="number"
-							min="0"
+							min="5"
 							step="5"
+							defaultValue={minutesSpent}
 							onKeyDown={(e) => {
 								if (!/[0-9]/.test(e.key)) {
 									e.preventDefault();
 								}
 							}}
 							onChange={(e) => {
-								setMinutesSpent(e.target.value);
+								const value = parseInt(e.target.value);
+								if (value < 5) {
+									setMinutesSpent(5);
+								} else {
+									setMinutesSpent(value);
+								}
 							}}
 						/>
 					</label>
-					<button className="main-btn" onClick={handleRegisterClick}>
+					<button
+						className="main-btn"
+						onClick={handleRegisterClick}
+						disabled={minutesSpent < 1}
+					>
 						REGISTER
 					</button>
 					<Link to="/journal">
@@ -65,7 +104,7 @@ const ActivityPopup = ({ activity, onClose }) => {
 };
 
 ActivityPopup.propTypes = {
-	activity: PropTypes.object.isRequired, // Adjust the prop type as per your data structure
+	activity: PropTypes.object.isRequired,
 	onClose: PropTypes.func.isRequired,
 };
 
