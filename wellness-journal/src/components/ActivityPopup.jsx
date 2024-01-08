@@ -1,15 +1,23 @@
 // components/ActivityPopup.jsx
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
-import { addActivityToJournal } from "../redux/myFeatures";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	addActivityToJournal,
+	editActivityInJournal,
+	deleteActivityFromJournal,
+} from "../redux/myFeatures";
 import { Link } from "react-router-dom";
 import "../styling/activityPopup.scss";
 
-const ActivityPopup = ({ activity, onClose }) => {
+const ActivityPopup = ({ activity, onClose, editingActivity }) => {
 	const dispatch = useDispatch();
-	const [minutesSpent, setMinutesSpent] = useState(5);
+	const [minutesSpent, setMinutesSpent] = useState(
+		editingActivity ? editingActivity.minutesSpent : 5
+	);
+	const journal = useSelector((state) => state.journal);
+	const [index, setIndex] = useState(-1);
 	const weekdays = [
 		"SUNDAY",
 		"MONDAY",
@@ -37,15 +45,40 @@ const ActivityPopup = ({ activity, onClose }) => {
 	let day = today.getDate().toString().padStart(2, "0");
 	let weekday = weekdays[today.getDay()];
 	let month = months[today.getMonth()];
-
 	let dateString = `${weekday} ${day} ${month}`;
 
-	const handleRegisterClick = () => {
-		if (minutesSpent > 0) {
-			dispatch(addActivityToJournal(activity, minutesSpent, dateString));
+	useEffect(() => {
+		if (editingActivity) {
+			const currentIndex = journal.findIndex(
+				(activity) => activity.id === editingActivity.id
+			);
+			setIndex(currentIndex);
+		}
+	}, [journal, editingActivity]);
+
+	const handleSaveChanges = () => {
+		dispatch(editActivityInJournal(editingActivity.id, minutesSpent));
+	};
+
+	const handleDeleteClick = () => {
+		const userConfirmed = window.confirm(
+			"Are you sure you want to delete this activity?"
+		);
+		if (userConfirmed) {
+			dispatch(deleteActivityFromJournal(editingActivity));
+			onClose();
 		}
 	};
 
+	const handleRegisterClick = () => {
+		if (minutesSpent > 0) {
+			const newActivity = {
+				...activity,
+				id: Date.now(),
+			};
+			dispatch(addActivityToJournal(newActivity, minutesSpent, dateString));
+		}
+	};
 	return (
 		<div className="activity-popup">
 			<main>
@@ -84,14 +117,21 @@ const ActivityPopup = ({ activity, onClose }) => {
 					</label>
 					<button
 						className="main-btn"
-						onClick={handleRegisterClick}
+						onClick={editingActivity ? handleSaveChanges : handleRegisterClick}
 						disabled={minutesSpent < 1}
 					>
-						REGISTER
+						{editingActivity ? "SAVE" : "REGISTER"}
 					</button>
-					<Link to="/journal">
-						<button className="main-btn">YOUR JOURNAL</button>
-					</Link>
+					{editingActivity && (
+						<button className="main-btn" onClick={handleDeleteClick}>
+							DELETE
+						</button>
+					)}
+					{!editingActivity && (
+						<Link to="/journal">
+							<button className="main-btn">YOUR JOURNAL</button>
+						</Link>
+					)}
 				</section>
 				<img
 					className="close-btn"

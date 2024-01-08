@@ -1,3 +1,6 @@
+// styling/variables.scss
+
+// Colors
 $color-background: #272727;
 $color-black: #000000;
 $color-coral: #ffbfa4;
@@ -7,14 +10,15 @@ $color-grey: #a9a9a9;
 $color-purple: #dca4ff;
 $color-white: #ffffff;
 
-$background-image-rectangle: linear-gradient(
+// Gradients
+$background-image-rectangle-blk: linear-gradient(
 	-180deg,
 	$color-white 0%,
 	$color-background 20%,
 	$color-background 100%
 );
 
-$background-image-square: linear-gradient(
+$background-image-square-blk: linear-gradient(
 	-180deg,
 	#ffffff 0%,
 	#272727 10%,
@@ -22,10 +26,23 @@ $background-image-square: linear-gradient(
 	#000000 100%
 );
 
-$box-shadow-rectangle: 0 -0.25rem 1rem rgb(0, 0, 0) inset,
+$background-image-square-purple: linear-gradient(
+	-180deg,
+	#ffffff 0%,
+	#dca4ff 10%,
+	#dca4ff 85%,
+	#9d00ff 100%
+);
+
+// Box-shadows
+$box-shadow-rectangle-blk: 0 -0.25rem 1rem rgb(0, 0, 0) inset,
 	0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
 	0 0.25rem 0.5rem 0 rgb(81, 81, 81) inset;
 
-$box-shadow-square: 0 -0.25rem 1.5rem rgb(0, 0, 0) inset,
+$box-shadow-square-blk: 0 -0.25rem 1.5rem rgb(0, 0, 0) inset,
 	0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
 	0 0.25rem 0.5rem 0 rgb(38, 38, 38) inset;
+
+$box-shadow-square-purple: 0 -0.25rem 1.5rem rgb(220, 164, 255) inset,
+	0 0.75rem 0.5rem rgb(240, 219, 253) inset,
+	0 0.25rem 0.5rem 0 rgb(157, 0, 255) inset;

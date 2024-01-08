@@ -9,11 +9,17 @@
 		display: grid;
 		grid-template-columns: 1fr 2fr 1fr;
 		background-color: $color-purple;
+		background-image: $background-image-square-purple;
+		box-shadow: $box-shadow-square-purple;
 		border: solid $color-white 0.1px;
 		border-radius: 0.6rem;
 		padding: 1rem 0.8rem;
 		margin-bottom: 1rem;
 		gap: 1.75rem;
+
+		&:active {
+			border: solid 0.1px $color-green;
+		}
 
 		&__image-container {
 			display: flex;

@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import ActivityPopup from "../components/ActivityPopup";
-import "../styling/general.scss";
-import "../styling/activities.scss";
 import { Link } from "react-router-dom";
 
 const Activities = () => {

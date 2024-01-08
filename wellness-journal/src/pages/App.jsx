@@ -1,8 +1,6 @@
 // Home.jsx
 
 import { useState } from "react";
-import "../styling/app.scss";
-import "../styling/general.scss";
 import { Link } from "react-router-dom";
 
 function App() {
