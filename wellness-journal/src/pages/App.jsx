@@ -1,14 +1,10 @@
-// Home.jsx
+// pages/App.jsx
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function App() {
+function Home() {
 	const [count, setCount] = useState(0);
-
-	const handleLinkClick = () => {};
-
-	handleLinkClick();
 
 	return (
 		<div className="App">
@@ -32,4 +28,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Home;
