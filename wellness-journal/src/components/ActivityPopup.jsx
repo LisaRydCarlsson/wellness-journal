@@ -80,66 +80,64 @@ const ActivityPopup = ({ activity, onClose, editingActivity }) => {
 		}
 	};
 	return (
-		<div className="activity-popup">
-			<main>
-				<section className="header">
-					<h2>
-						WELLNESS <br />
-						JOURNAL
-					</h2>
-					<h4>register you activity time</h4>
-				</section>
-				<img src={activity.iconURL} alt={`${activity.activity} icon`} />
-				<h3>{activity.activity}</h3>
-				<h3 className="date">{dateString}</h3>
-				<section className="btn-container">
-					<label>
-						minutes:
-						<input
-							type="number"
-							min="5"
-							step="5"
-							defaultValue={minutesSpent}
-							onKeyDown={(e) => {
-								if (!/[0-9]/.test(e.key)) {
-									e.preventDefault();
-								}
-							}}
-							onChange={(e) => {
-								const value = parseInt(e.target.value);
-								if (value < 5) {
-									setMinutesSpent(5);
-								} else {
-									setMinutesSpent(value);
-								}
-							}}
-						/>
-					</label>
-					<button
-						className="main-btn"
-						onClick={editingActivity ? handleSaveChanges : handleRegisterClick}
-						disabled={minutesSpent < 1}
-					>
-						{editingActivity ? "SAVE" : "REGISTER"}
+		<main className="activity-popup">
+			<section className="header">
+				<h2>
+					WELLNESS <br />
+					JOURNAL
+				</h2>
+				<h4>register you activity time</h4>
+			</section>
+			<img src={activity.iconURL} alt={`${activity.activity} icon`} />
+			<h3>{activity.activity}</h3>
+			<h3 className="date">{dateString}</h3>
+			<section className="btn-container">
+				<label>
+					minutes:
+					<input
+						type="number"
+						min="5"
+						step="5"
+						defaultValue={minutesSpent}
+						onKeyDown={(e) => {
+							if (!/[0-9]/.test(e.key)) {
+								e.preventDefault();
+							}
+						}}
+						onChange={(e) => {
+							const value = parseInt(e.target.value);
+							if (value < 5) {
+								setMinutesSpent(5);
+							} else {
+								setMinutesSpent(value);
+							}
+						}}
+					/>
+				</label>
+				<button
+					className="main-btn"
+					onClick={editingActivity ? handleSaveChanges : handleRegisterClick}
+					disabled={minutesSpent < 1}
+				>
+					{editingActivity ? "SAVE" : "REGISTER"}
+				</button>
+				{editingActivity && (
+					<button className="main-btn" onClick={handleDeleteClick}>
+						DELETE
 					</button>
-					{editingActivity && (
-						<button className="main-btn" onClick={handleDeleteClick}>
-							DELETE
-						</button>
-					)}
-					{!editingActivity && (
-						<Link to="/journal">
-							<button className="main-btn">YOUR JOURNAL</button>
-						</Link>
-					)}
-				</section>
-				<img
-					className="close-btn"
-					src="src/assets/cross-white.png"
-					onClick={onClose}
-				/>
-			</main>
-		</div>
+				)}
+				{!editingActivity && (
+					<Link to="/journal">
+						<button className="main-btn">YOUR JOURNAL</button>
+					</Link>
+				)}
+			</section>
+			<img
+				className="close-btn"
+				src="src/assets/cross-white.png"
+				onClick={onClose}
+			/>
+		</main>
 	);
 };
 
