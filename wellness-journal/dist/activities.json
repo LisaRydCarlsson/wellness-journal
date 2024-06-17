@@ -1,0 +1,58 @@
+[
+	{
+		"id": 101,
+		"activity": "Badminton",
+		"iconURL": "src/assets/badminton_white.png"
+	},
+	{
+		"id": 102,
+		"activity": "Basketball",
+		"iconURL": "src/assets/basketball-player_white.png"
+	},
+	{
+		"id": 103,
+		"activity": "Boxing",
+		"iconURL": "src/assets/boxing-glove_white.png"
+	},
+	{
+		"id": 104,
+		"activity": "Cycling",
+		"iconURL": "src/assets/cycling_white.png"
+	},
+	{ "id": 105, "activity": "Golf", "iconURL": "src/assets/golf_white.png" },
+	{
+		"id": 106,
+		"activity": "Martial Art",
+		"iconURL": "src/assets/martial-art_white.png"
+	},
+	{ "id": 107, "activity": "Padel", "iconURL": "src/assets/padel_white.png" },
+	{
+		"id": 108,
+		"activity": "Running",
+		"iconURL": "src/assets/running_white.png"
+	},
+	{ "id": 109, "activity": "Skiing", "iconURL": "src/assets/skiing_white.png" },
+	{ "id": 110, "activity": "Soccer", "iconURL": "src/assets/soccer_white.png" },
+	{
+		"id": 111,
+		"activity": "Swimming",
+		"iconURL": "src/assets/swimming_white.png"
+	},
+	{ "id": 112, "activity": "Tennis", "iconURL": "src/assets/tennis_white.png" },
+	{
+		"id": 113,
+		"activity": "Walking",
+		"iconURL": "src/assets/walking_white.png"
+	},
+	{
+		"id": 114,
+		"activity": "Water Gym",
+		"iconURL": "src/assets/water-gym_white.png"
+	},
+	{
+		"id": 115,
+		"activity": "Weights",
+		"iconURL": "src/assets/weightlifting_white.png"
+	},
+	{ "id": 116, "activity": "Yoga", "iconURL": "src/assets/yoga_white.png" }
+]
